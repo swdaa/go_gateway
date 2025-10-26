@@ -18,6 +18,7 @@ func startService(ctx context.Context, serverName, host, port string) context.Co
 	ctx, cancel := context.WithCancel(ctx)
 	var srv http.Server
 	srv.Addr = ":" + port
+	
 	go func() {
 		log.Println(srv.ListenAndServe())
 		cancel()
